@@ -33,6 +33,7 @@ body {
     min-height: 2em;
     background-color: #000;
     color: #fff;
+    text-align: center;
 }
 
 .outer-wrap-header {
@@ -68,6 +69,11 @@ body {
 
 .outer-wrap-navbar a:hover {
     color: #ddd;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
 }
 
 

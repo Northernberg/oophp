@@ -11,4 +11,4 @@ namespace Anax\View;
 
 ?>
 
-FOOTER
+Gustav Nordberg copyright 2018 &copy;  
