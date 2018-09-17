@@ -35,8 +35,30 @@ TIL att förstöra en session och skapa en ny i samma sekvens inte är så enkel
 Kmom02
 -------------------------
 
-Här är redovisningstexten
+Hur gick det att överföra spelet “Gissa mitt nummer” in i din me-sida?
+-Det gick väldigt bra att implementera alla versioner i htdocs som startar utanför ramverket.
+Sedan var GET versionen enkel att implementera all funktionalitet i routen.
+Det svåra var att få POST och SESSION att fungera med nollställning av spelet.
+Jag hade blandat ihop värden så att det var fel värden som visades för "tries" och "number".
+Det var även svårt att nollställa SESSION och uppdatera sidan med header().
+Jag hade först att jag förstörde SESSIONEN men löste det istället med att återställa den SESSIONEN som var igång.
 
+Berätta om din syn på modellering likt UML jämfört med verktyg som phpDocumentor. Fördelar, nackdelar, användningsområde? Vad tycker du om konceptet make doc?
+-Jag tycker först att UML är mer fritt och du har mer frihet att välja hur du ska strukturera diagrammet.
+PhpDocumentor var enkel att använda då det endast är två kommandon, och justeringar i config filen.
+Sedan är det självklart viktigt att du gjort rätt med docblock kommentarerna då de utgår från dessa.
+Det verkar ganska effektivt att få en grundstruktur av dokumentationen och sen bygga upp och komplettera det som behövs.
+Det hjälper dessutom att strukturera koden generellt då du använder dig utav mer detaljerade kommentarblocks.  
+
+Hur känns det att skriva kod utanför och inuti ramverket, ser du fördelar och nackdelar med de olika sätten?
+Det känns bra att skriva kod i båda delarna, det svåra kan vara att implementera den ena till den andra.
+Utanför ramverket ger fler möjligheter att testa funktionaliteten och felsöka koden.
+I ramverket så kan de uppstå problem och koden kan behövas ändringar för att fungera korrekt med ramverkets struktur.
+Jag tycker att båda delarna är bra att använda sig utav för att lättare bygga grunden och testa funktionaliteten innan
+och sedan göra justeringar.
+
+Vilken är din TIL för detta kmom?
+TIL att ha bättre koll på vilka värden som visas i den aktuella routens vy.
 
 
 Kmom03
