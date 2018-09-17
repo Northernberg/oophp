@@ -47,5 +47,4 @@ $app->router->get("gissa/get", function () use ($app) {
 
     $app->page->add("guess/index_get", $data);
     return $app->page->render($data);
-
 });

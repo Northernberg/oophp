@@ -124,6 +124,5 @@ class Guess
             }
         }
         return "Game over";
-
     }
 }

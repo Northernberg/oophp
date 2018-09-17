@@ -53,6 +53,4 @@ $app->router->any(["GET", "POST"], "gissa/session", function () use ($app) {
 
     $app->page->add("guess/index_session", $data);
     return $app->page->render($data);
-
-
 });
