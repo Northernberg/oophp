@@ -64,8 +64,40 @@ TIL att ha bättre koll på vilka värden som visas i den aktuella routens vy.
 Kmom03
 -------------------------
 
-Här är redovisningstexten
+Har du tidigare erfarenheter av att skriva kod som testar annan kod?
+Jag har arbetat tidigare med enhetstestning av klasser i Python.
+Det var väldigt likt sätt att arbeta på, genom att skapa testklasser och köra dessa med assertions.
+Det gjorde det dessutom enklare att börja med PHPUnit och förstå snabbare hur systemet fungerade.
 
+Hur ser du på begreppen enhetstestning och att skriva testbar kod?
+Jag tycker att enhetstestning kan vara väldigt svårt i vissa fall.
+Dessa fall har varit min egen kod som t.ex inte returnerar något och därav blir svår att testa.
+Det jag gjorde i DiceGame för de metoder som inte returnerade något, så kopplade jag ihop flertal metoder och
+analyserade hur jag skulle kunna testa att den första metoden gör det den ska.
+Det bästa skulle vara att ha i åtanke att denna kod kommer testas och därefter göra smarta val
+över vad som är nödvändigt och om det du har verkligen är optimerat.
+
+Förklara kort begreppen white/grey/black box testing samt positiva och negativa tester, med dina egna ord.
+Positiva tester är något som du förväntar dig att den testade koden kommer returnera eller skapa.
+Negativa tester är en test som du förväntar dig ska returnera något negativt, alltså en situation som din kod inte ska kunna göra.
+White/grey/black box testing är olika tester som testar diverse sidor av programmet.
+Alltså t.ex det interna delarna av programmet om hur det är strukturerat och uppbygt.
+Eller utsidan av programmet som visar genom funktionaliteterna som programmet har.
+
+Berätta om hur du löste uppgiften med Tärningsspelet 100, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?
+Jag använde mig först och främst utav tidigare klasserna "Dice" och "Dicehand" för att skapa grunden.
+Sedan planerade jag hur spelfunktionaliteten skulle fungera i en klass samt hur "rundorna" skulle fungera i klassprogrammering.
+Jag valde att skapa en "CurrentGame" för spelrundorna och "DiceGame" som en superklass där grunderna existerar.
+Sedan ärver "Dicegame" funktionalitet från de olika Dice-klasserna samt en "Player" klass och fungerar som den grundläggande klassen.
+
+Hur väl lyckades du testa tärningsspelet 100?
+Jag lyckades testa grönt för de flesta klasserna där jag mestadels testar instansen och vissa metoder.
+Det svåra var att testa grundklassen "DiceGame" då den mestadels arbetade som en grund och byggde på de andra klasserna.
+Jag fick viss kodanvändning där när jag testade andra klasser som hade metoder kopplade till "DiceGame".
+I övrigt så gick det ganska bra att göra ett par tester per klass.
+
+Vilken är din TIL för detta kmom?
+TIL att inte göra en spel för omfattande, tänk enkelt istället för det kan spara tid!
 
 
 Kmom04

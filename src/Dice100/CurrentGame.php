@@ -1,0 +1,84 @@
+<?php
+namespace Guno\Dice100;
+
+/**
+ * CurrentGame class
+ */
+class CurrentGame extends DiceGame
+{
+    /**
+    * @var integer $sides     The number of sides in dice
+    * @var integer $lastRoll     The last roll of dice
+    * @var integer $number     The current number of dice
+    */
+    private $players;
+    private $turn;
+    private $scorePool = 0;
+
+
+    /**
+    *
+    *  Constructor to initiate dice
+    */
+    public function __construct($name)
+    {
+        parent::__construct();
+
+        $this->players = [];
+
+        $this->players[0] = new Player($name);
+        $this->players[1] = new Player("bot");
+    }
+
+    public function decideStarter()
+    {
+        $dice = new Dice(6);
+        $draft = [];
+        for ($i=0; $i < count($this->players); $i++) {
+            $newValue = $dice->roll();
+            array_push($draft, $newValue);
+        }
+        $starter = array_search(max($draft), $draft);
+        $this->turn = $starter;
+    }
+
+    public function turn()
+    {
+        $this->scorePool = 0;
+        if ($this->turn >= 1) {
+            $this->turn = 0;
+        } else {
+            $this->turn++;
+        }
+    }
+
+    public function getTurn()
+    {
+        return $this->turn;
+    }
+
+    public function saveScore()
+    {
+        $this->players[$this->turn]->addScore($this->scorePool);
+    }
+
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+
+    public function playDice()
+    {
+        $value = $this->play();
+        if ($value == 0) {
+            $this->scorePool = 0;
+        } else {
+            $this->scorePool += $value;
+        }
+    }
+
+    public function getScorePool()
+    {
+        return $this->scorePool;
+    }
+}
