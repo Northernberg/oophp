@@ -103,8 +103,33 @@ TIL att inte göra en spel för omfattande, tänk enkelt istället för det kan 
 Kmom04
 -------------------------
 
-Här är redovisningstexten
+Vilka är dina tankar och funderingar kring trait och interface?
+Jag tycker att det är intressanta koncept för att bättre strukturera modulärt.
+Trait var väldigt användbart för att minska koden i klasserna genom att låta traiten importerar vissa metoder samt medlemsvariabler.
+Dessutom är det väldigt bra om ett antal klasser har lika metoder så behöver det endast skriva en gång i traiten och importeras.
+Interface verkar bra för att skapa regler för klasserna och att beskriva vad klasserna ska innehålla för andra programmerare.
 
+Hur gick det att skapa intelligensen och taktiken till tärningsspelet, hur gjorde du?
+Det var svårt att tänka sig hur intelligensen skulle fungera i ett slumpmässigt tärningsspel.
+Jag försökte först använda mig utav histogram och göra tester för att se vissa mönster bland tärningskasten.
+Det fungerade inte då det alltid var slumpmässigt och att testa det skulle bli ganska komplext.
+Tillslut använde jag mig utav spelarnas totalpoäng.
+Där jämför jag spelarens totalpoäng mot bottens totalpoäng och dess nuvarande kast.
+Därefter gör botten ett nytt kast om skillnaden kommer vara högre än 10 i totalpoäng.
+
+
+Några reflektioner från att integrera hårdare in i ramverkets klasser och struktur?
+Det var ganska mycket ändringar i koden, då jag t.ex hade använd mig utav flertal "isset()" vilket inte fungerade på ramverkets metoder.
+Det kändes bättre att använda ramverkets egna struktur för session, get och post då det blev snyggare i koden.
+Det såg lite klumpigare ut i koden att använda de globala variablerna för requests och responses.
+
+Berätta hur väl du lyckades med make test inuti ramverket och hur väl du lyckades att testa din kod med enhetstester och vilken kodtäckning du fick.
+Jag lyckades testa min kod ganska bra, dock så blev många tester väldigt lika mellan klasserna.
+Jag fick grön(över 70%) på alla klasser som jag implementerat i ramverkets dice 100 spel.
+De flesta testerna var över rätt och fel typ av return värde men också set metoder för t.ex poängen i spelet.
+
+Vilken är din TIL för detta kmom?
+TIL en helt ny struktur för att sortera koden mellan klasser, trait.
 
 
 Kmom05

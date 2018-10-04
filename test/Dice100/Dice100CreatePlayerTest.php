@@ -21,10 +21,22 @@ class PlayerCreateObjectTest extends TestCase
         $exp = "Gustav";
         $this->assertEquals($exp, $res);
     }
+
     public function testGetScoreType()
     {
         $player = new Player("gustav");
 
         $this->assertTrue(is_int($player->getScore()));
+    }
+
+    public function testAddPlayerScore()
+    {
+        $player = new Player("gustav");
+        $res = $player->getScore();
+        $exp = $player->getScore() + 5;
+
+        $player->addScore(5);
+
+        $this->assertEquals($res, $exp);
     }
 }

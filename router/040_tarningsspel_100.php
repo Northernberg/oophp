@@ -26,39 +26,63 @@ $app->router->any(["GET", "POST"], "dice/start", function () use ($app) {
         "title" => "Guess game get"
     ];
 
-    if (!isset($_SESSION["dice"])) {
-        $_SESSION["dice"] = new \Guno\Dice100\CurrentGame($_POST["name"]);
+    if ($app->session->get("dice") == null) {
+        $app->session->set("dice", new \Guno\Dice100\CurrentGame($app->request->getPost("name")));
     }
 
-    if (isset($_POST["reset"])) {
+    if ($app->session->get("histogram") == null) {
+        $histo = new \Guno\Dice100\Histogram();
+        $histo2 = new \Guno\Dice100\Histogram();
+
+        $app->session->set("histogram", $histo);
+        $app->session->set("histogramBot", $histo2);
+    }
+
+    $histogram = $app->session->get("histogram");
+    $histogramBot = $app->session->get("histogramBot");
+    $dice = $app->session->get("dice");
+
+    if ($app->request->getPost("reset") != null) {
         session_destroy();
         header("Location: ../dice");
         exit();
     }
 
-    if (isset($_POST["startGame"])) {
-        $_SESSION["dice"]->decideStarter();
+    if ($app->request->getPost("startGame") != null) {
+        $dice->decideStarter();
     }
 
-    if (isset($_POST["roll"])) {
-        $_SESSION["dice"]->playDice();
+    if ($app->request->getPost("roll") != null) {
+        $dice->playDice();
+        $histogram->addValues($dice->values());
     }
 
-    if (isset($_POST["stay"])) {
-        $_SESSION["dice"]->saveScore();
+    if ($app->request->getPost("stay") != null) {
+        $dice->saveScore();
     }
 
-    if (isset($_POST["continue"])) {
-        if ($_SESSION["dice"]->getPlayers()[$_SESSION["dice"]->getTurn()]->getScore() >= 100) {
+    if ($app->request->getPost("continue") != null) {
+        if ($dice->getPlayers()[$dice->getTurn()]->getScore() >= 100) {
         } else {
-            $_SESSION["dice"]->turn();
+            $dice->turn();
         }
     }
 
-    if ($_SESSION["dice"]->getTurn() == 1) {
-        $_SESSION["dice"]->playDice();
-        $_SESSION["dice"]->saveScore();
+    if ($dice->getTurn() == 1) {
+        do {
+            $dice->playDice();
+            $histogramBot->addValues($dice->values());
+
+            $players = $dice->getPlayers();
+            $player = $players[0];
+            $bot = $players[1];
+            $current = $dice->getScorePool();
+        } while ($player->getScore() - ($bot->getScore() + $current) >= 10);
+
+        $dice->saveScore();
     }
+
+    $data["dice"] = $dice;
 
 
     $app->page->add("dice100/dice_game", $data);

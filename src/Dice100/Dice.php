@@ -11,7 +11,7 @@ class Dice
     * @var integer $lastRoll     The last roll of dice
     * @var integer $number     The current number of dice
     */
-    private $sides;
+    protected $sides;
     protected $lastRoll;
 
 

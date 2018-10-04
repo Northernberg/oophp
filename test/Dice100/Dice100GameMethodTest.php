@@ -49,4 +49,11 @@ class Dice100GameMethodTest extends TestCase
 
         $this->assertTrue(is_array($game->values()));
     }
+
+    public function testGraphics()
+    {
+        $game = new CurrentGame("Gustav");
+
+        $this->assertTrue(is_array($game->graphic()));
+    }
 }
