@@ -34,13 +34,13 @@ return [
         "title" => "Anax test page for routes.",
     ],
     [
-        "text" => "Gissa",
-        "url" => "gissa",
-        "title" => "Guess game.",
+        "text" => "Dice100",
+        "url" => "dice",
+        "title" => "Dice100 game",
     ],
     [
-        "text" => "Dice 100",
-        "url" => "dice",
-        "title" => "Dice 100.",
+        "text" => "Movie",
+        "url" => "movie",
+        "title" => "Movies",
     ],
 ];

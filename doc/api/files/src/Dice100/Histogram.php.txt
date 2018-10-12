@@ -1,0 +1,68 @@
+<?php
+
+namespace Guno\Dice100;
+
+/**
+ * Generating histogram data.
+ */
+class Histogram extends Dice implements HistogramInterface
+{
+    use HistogramTrait2;
+    /**
+     * @var array $serie  The numbers stored in sequence.
+     * @var int   $min    The lowest possible number.
+     * @var int   $max    The highest possible number.
+     */
+    private $serie = [];
+    private $min;
+    private $max;
+
+
+
+    /**
+     * Get the serie.
+     *
+     * @return array with the serie.
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
+
+
+
+    /**
+     * Return a string with a textual representation of the histogram.
+     *
+     * @return string representing the histogram.
+     */
+    public function getAsText()
+    {
+        $res = "";
+        $arr = [];
+
+        for ($i = (isset($this->min) ? $this->min : 1); $i <= (isset($this->max) ? $this->max : 6); $i++) {
+            $arr[$i] = "";
+            for ($j=0; $j < count($this->serie); $j++) {
+                if ($this->serie[$j] == $i) {
+                    $arr[$i] .= "*";
+                }
+            }
+        }
+
+        ksort($arr);
+        foreach ($arr as $key => $value) {
+            $res .= $key . ": " . $value . "\n";
+        }
+
+        return $res;
+    }
+
+    public function addValues($arr)
+    {
+        foreach ($arr as $value) {
+            array_push($this->serie, $value);
+        }
+    }
+}
+

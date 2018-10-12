@@ -135,7 +135,28 @@ TIL en helt ny struktur för att sortera koden mellan klasser, trait.
 Kmom05
 -------------------------
 
-Här är redovisningstexten
+Några reflektioner kring koden i övningen för PHP PDO och MySQL?
+Jag tyckte det var användbart hur switch case satsen fungerade som en enkel router enligt övningen.
+Det skulle nog gå att sortera upp router filen för anax att återanvända vissa variabler över alla routes.
+Det var många säkerhets och valideringsåtgärder för uppgiften som var spännande att lära sig för att skapa mer vattentät kod.
+I övrigt så hjälpte övningen väldigt mycket att komma igång med CRUD och interagera med databasen genom PHP.
+
+Hur gick det att överföra koden in i ramverket, stötte du på några utmaningar?
+Det gick ganska bra när databasen fungerade som den skulle och jag löste en index sida som bekräftade att allt fungerade.
+Jag fick dock problem med filerna för config-mappen så att databasen inte fungerade korrekt och det var allting inte var på
+plats för att databasen skulle fungera.
+Sedan byggde jag upp CRUD efter det och testade mig framåt tillsammans med debugging utskriften som databas konfigurationen skrev ut.
+Annars var det ganska straight forward att skriva ut resultatet av databasfrågorna.
+
+
+Berätta om din slutprodukt för filmdatabasen, gjorde du endast basfunktionaliteten eller lade du till extra features och hur tänkte du till kring användarvänligheten och din kodstruktur?
+Min slutprodukt blev en multisida som oftast redirecta tillbaka till index sidan för att visa resultat över filmerna.
+Jag gjorde endast basfunktionaliteten i brist av tid men tycker att det fungerar ganska bra ändå.
+Jag gjorde en länk för sökfunktionen och en länk för att uppdatera filmer.
+I "uppdatera" så kan du både uppdatera, skapa och radera filmer i samma vy för att förenkla och inte ha för många länkar på index sidan.
+
+Vilken är din TIL för detta kmom?
+TIL att förenkla CRUD genom att bygga ihop flertal funktionaliteter till en i en vy.
 
 
 
