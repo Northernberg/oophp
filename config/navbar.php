@@ -43,4 +43,14 @@ return [
         "url" => "movie",
         "title" => "Movies",
     ],
+    [
+        "text" => "TextFilters",
+        "url" => "textfilters",
+        "title" => "TextFilters",
+    ],
+    [
+        "text" => "Content",
+        "url" => "content",
+        "title" => "Content",
+    ],
 ];

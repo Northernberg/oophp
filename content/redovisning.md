@@ -163,7 +163,29 @@ TIL att förenkla CRUD genom att bygga ihop flertal funktionaliteter till en i e
 Kmom06
 -------------------------
 
-Här är redovisningstexten
+Hur gick det att jobba med klassen för filtrering och formatting av texten?
+Jag tycker det gick bra att arbeta med klassen för textfiltreringen.
+Jag följde exemplen i artikeln för varje formatering och skapade därefter ett test i ramverket efter respektive.
+"BBcode" och "makeClickable" hade mer avancerad regex i metoden, vilket jag inte förstod helt.
+Det senare metoderna "markdown" och "nl2br" var mer simpla då de fanns en inbyggd funktion och klass redan i PHP.
+För övrigt så fungerade det bra att skicka in en array av filtrerna då det var lätt att hantera när det skulle vara flertal.
+
+Berätta om din klasstruktur och kodstruktur för din lösning av webbsidor med innehåll i databasen.
+Jag skapade en översiktlig route som innehåller samtliga webbsidor i en tabell, med en länk till respektive.
+Jag löste routingen genom att använda mig utav en gemensam vy för alla olika webbsidor.
+Sedan kollar jag url:en efter "path" och söker genom databasen efter webbsidan för att få fram rätt data i vyn.
+Jag har även skapat en felhantering där "path" är tom, vilket gör att sidan kastar en Exception och skriver ut
+"Does not have a path".
+
+Hur känner du rent allmänt för den koden du skrivit i din me/redovisa, vad är bra och mindre bra? Ser du potential till refactoring av din kod och/eller behov av stöd från ramverket?
+Jag känner att jag inte haft tid att styla om hemsidan något, vilket är ganska tråkigt.
+Nu när jag arbetat mycket med me/redovisa så har jag lärt mig mapphanteringen mycket bättre.
+Det känns väldigt smidigt att använda sig utav "$app" för routing, databas, requests.
+Jag tror att jag kunde ha fixat kodstrukturen lite snyggare i t.ex routingen då jag använder mig mycket av samma kod där.
+Jag tycker det är ganska skönt att skriva mycket i inline PHP, då känns det som att man har mer koll.
+
+Vilken är din TIL för detta kmom?
+Hur filter kan appliceras och skapa HTML kod från en sträng.
 
 
 
